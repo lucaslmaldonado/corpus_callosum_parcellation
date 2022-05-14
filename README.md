@@ -43,25 +43,37 @@ Será feito um estudo do funcionamento deste algoritmo. Se possível, será feit
 
 Buscarei artigos que descrevam os pré e pós-processamentos utilizados em conjunto com o watershed para a segmentação de corpo caloso (e estruturas similares)
 
-* Etapa 5 (2 semanas): Experimentação
+* Etapa 5 (4 semanas): Experimentação
 
 Irei testar quais resultados podem obtidos com as técnicas estudadas até aqui. Será um bom momento para reavaliar os objetivos do projeto.
 
-* Etapa 6 (2 semanas): Codificação
+* Etapa 6 (1 semanas): Codificação
 
 Assumindo que a Etapa 5 teve bons resultados, será criado o código final do projeto com os métodos escolhidos.
 
-* Etapa 7 (1 semana): Otimização e Refatoração
-
-Tentarei tornar o código final mais eficiente, limpo e simples.
-
-* Etapa 8 (1 semana): Comparação de Resultados
+* Etapa 7 (1 semana): Comparação de Resultados
 
 Irei comparar os resultados obtidos entre meu código final e o BrainGPS
 
-* Etapa 9 (1 semana): Escrita do Relatório
+* Etapa 8 (1 semana): Escrita do Relatório
 
 -----------------
+## Resultados Parciais
+
+ O maior problema enfrentado até o momento é o fato de que os artigos que encontrei utilizam recursos aos quais não tenho acesso, alguns deles utilizam imagens do tipo DTI, outros extraem propriedades de imagens já segmentadas por médicos. Por conta disso, decidi aumentar o tempo gasto na fase de experimentação com os métodos de segmentação para quatro semanas.
+
+ Felizmente obtive bons resultados com um dos métodos testados (pode ser visto neste [notebook](https://github.com/lucaslmaldonado/corpus_callosum_segmentation/blob/main/notebooks/2DWatershedTest.ipynb)), embora ele ainda precise ser refinado. Por enquanto ele foi testado apenas na fatia sagital central da imagem e depende de um tresholding manual. Quando o tresholding não está bem ajustado para imagem outros objetos são selecionados. Veja abaixo um caso de segmentação bem sucedida e três casos em outros objetos foram selecionados:
+
+ ![](resultsExamples/success00.png)
+ ![](resultsExamples/fail00.png)
+ ![](resultsExamples/fail01.png)
+ ![](resultsExamples/fail02.png)
+
+ Perceba que em todos os casos as bordas dos objetos sementados ainda são grosseiras.
+
+ Quando os resultados em 2D estiverem mais refinados tentarei aplicar o método em cada fatia da imagem 3D, com isso espero obter a segmentação tridimensional.  
+
+----------------
 ## Referências Bibliográficas
 
 Rittner, Leticia, et al. "Automatic DTI-based parcellation of the corpus callosum through the watershed transform." Revista Brasileira de Engenharia Biomédica 30.2 (2014): 132-143.
