@@ -47,7 +47,7 @@ Buscarei artigos que descrevam os pré e pós-processamentos utilizados em conju
 
 Irei testar quais resultados podem obtidos com as técnicas estudadas até aqui. Será um bom momento para reavaliar os objetivos do projeto.
 
-* Etapa 6 (1 semanas): Codificação
+* Etapa 6 (1 semana): Codificação
 
 Assumindo que a Etapa 5 teve bons resultados, será criado o código final do projeto com os métodos escolhidos.
 
