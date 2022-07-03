@@ -5,7 +5,7 @@
 
 <div style="text-align: justify"> 
 
-O presente projeto foi originado no contexto das atividades da disciplina de pós-graduação *EA979A - Introdução a Computação Gráfica e Processamento de Imagens*, 
+O presente projeto foi originado no contexto das atividades da disciplina de graduação *EA979A - Introdução a Computação Gráfica e Processamento de Imagens*, 
 oferecida no primeiro semestre de 2022, na Unicamp, sob supervisão da Profa. Dra. Paula Dornhofer Paro Costa, do Departamento de Engenharia de Computação e Automação (DCA) da Faculdade de Engenharia Elétrica e de Computação (FEEC).
  </div>
 
@@ -38,11 +38,11 @@ As principais simplificações realizadas neste projeto foram:
 
 ### O Algoritmo de Watershed
 
-A ideia deste algoritmo é tratar a a imagem como uma superfície, ou seja, os valores dos pixels representam uma elevação. O algoritmo funciona inundando bacias, que são atribuídas a marcadores definidos pelo usuário, este processo contínua até que a "água" de bacias diferentes se encontrem. A linha divisórias dessas "águas" (watershed) é o que delimita as regiões segmentadas [3].
+A ideia deste algoritmo é tratar a imagem como uma superfície, ou seja, os valores dos pixels representam uma elevação. O algoritmo funciona inundando bacias, que são atribuídas a marcadores definidos pelo usuário, este processo contínua até que a "água" de bacias diferentes se encontrem. A linha divisórias dessas "águas" (watershed) é o que delimita as regiões segmentadas [3].
 
 ![](img/watershed-algorithm.png)
 
-A imagem acima foi retirada de Zheng, Tao, et al [4].
+A imagem acima foi retirada do trabalho de Zheng, Tao, et al [4].
 
 ### Testes Realizados
 
@@ -68,12 +68,12 @@ O código deste teste pode ser visto [aqui](notebooks/WatershedTest-01.ipynb). C
 
 ![](img/Test02-01.jpg)
 
-São resultados muito promissores, mas, como podemos ver na segunda imagens, quando o CC e o tronco encefálico não são bem separados no threshold é este último que acaba sendo segmentado.
+São resultados muito promissores, mas, como podemos ver na segunda imagem, quando o CC e o tronco encefálico não são bem separados no threshold é este último que acaba sendo segmentado.
 
 
 #### 2° Teste
 
-A partir do  primeiro teste decidi que o próximo passo seria melhorar o processo de threshold. Considerei que seria interessante criar um método semi-automático de segmentação, no qual o usuário precisaria apenas clicar em um pixel da imagem que esteja contido no CC. Para fazer isto utilizei as funções de High-level GUI do OpenCV [5] e o código pode ser visto neste [notebook](notebooks/WatershedTest-02.ipynb). Ao meu ver este método apresenta dois problemas, embora funcione bem, que são: necessitar de interação com o usuário e ser consideravelmente sensível à esta interação. Veja o resultado deste método aplicado duas vezes à mesma imagem, a única diferença está no pixel fornecido pelo usuário:
+A partir do  primeiro teste decidi que o próximo passo seria melhorar o processo de threshold. Considerei que seria interessante criar um método semi-automático de segmentação, no qual o usuário precisaria apenas clicar em um pixel da imagem que esteja contido no CC. Para fazer isto utilizei as funções de High-level GUI do OpenCV [5] e o código pode ser visto neste [notebook](notebooks/WatershedTest-02.ipynb). Ao meu ver este método apresenta dois problemas, embora funcione bem, que são: necessitar de interação com o usuário e ser consideravelmente sensível a esta interação. Veja o resultado deste método aplicado duas vezes à mesma imagem, a única diferença está no pixel fornecido pelo usuário:
 
 ![](img/Test03-00.jpg)
 
@@ -81,7 +81,7 @@ A partir do  primeiro teste decidi que o próximo passo seria melhorar o process
 
 
 #### 3° Teste
-Para conseguir um método de segmentação completamente automático passei a tentar utilizar do conhecimento aproximado da posição do CC na imagem. A ideia consiste em recortar a região da imagem em que o CC geralmente se encontra, então aplico um filtro de média à essa sub-imagem e coleto seu pixel mais brilhante (a partir dele seguimos os mesmos passos de anteriormente). Esse método funciona bem em grande parte das imagens, mas, graças a variações anatômicas e do posicionamento do paciente, ele ainda acaba selecionando outras estruturas com certa frequência. O notebook deste teste pode ser acessado [aqui](notebooks/WatershedTest-03.ipynb). Veja como o pixel é selecionado (destacado em azul) e o resultados obtidos em casos de sucesso e falha:
+Para conseguir um método de segmentação completamente automático passei a tentar utilizar do conhecimento aproximado da posição do CC na imagem. A ideia consiste em recortar a região da imagem em que o CC geralmente se encontra, então aplicar um filtro de média a essa sub-imagem e coletar seu pixel mais brilhante (a partir dele seguimos os mesmos passos de anteriormente). Esse método funciona bem em grande parte das imagens, mas, graças a variações anatômicas e do posicionamento do paciente, ele ainda acaba selecionando outras estruturas com certa frequência. O notebook deste teste pode ser acessado [aqui](notebooks/WatershedTest-03.ipynb). Veja como o pixel é selecionado (destacado em azul) e o resultados obtidos em casos de sucesso e falha:
 
 ![](img/Test04-00-0.jpg)
 ![](img/Test04-00-1.jpg)
@@ -96,7 +96,7 @@ O último teste realizado dá continuidade ao visto acima, mas desta vez tenta p
 * determinar um ponto no interior do CC;
 * segmentar o CC com o watershed
 
-O código deste teste está disponível [aqui](notebooks/WatershedTest-04.ipynb) e gera resultados como os da imagem abaixo. A primeira imagem mostra o processo de segmentação do TE, embora ele não determine todo o contorno da estrutura o resultado é suficiente para obter a posição aproximada do CC.
+O código deste teste está disponível [aqui](notebooks/WatershedTest-04.ipynb) e gera resultados como os das imagens abaixo. A primeira imagem mostra o processo de segmentação do TE, embora ele não determine todo o contorno da estrutura o resultado é suficiente para obter a posição aproximada do CC.
 
 ![](img/Test05-00-0.jpg)
 ![](img/Test05-00-1.jpg)
