@@ -1,0 +1,6 @@
+ipywidgets==7.6.5
+matplotlib==3.5.1
+nibabel==3.2.2
+numpy==1.22.2
+pandas==1.4.1
+scipy==1.8.0
