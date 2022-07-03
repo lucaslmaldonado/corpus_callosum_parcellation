@@ -131,7 +131,7 @@ Veja os dois casos que tiveram os piores resultados e um exemplo de bom resultad
 
 -----------------
 ## Discussão
-Levando em consideração o tempo que pode ser investido neste projeto, acredito ter conquistado bons resultados. Infelizmente minha busca inicial em artigos por técnicas que pudessem me ajudar não gerou muitos frutos. Isto aconteceu pois a maioria dos artigos que utiliza watershed para segmentar o CC o aplica em imagens ponderadas em difusão [6] ou em conjunto com dados estatísticos gerados pela análise de médicos [7], e não tenho acesso a ambos.
+Levando em consideração o tempo que pôde ser investido neste projeto, acredito ter conquistado bons resultados. Infelizmente minha busca inicial em artigos por técnicas que pudessem me ajudar não gerou muitos frutos. Isto aconteceu pois a maioria dos artigos que utiliza watershed para segmentar o CC o aplica em imagens ponderadas em difusão [6] ou em conjunto com dados estatísticos gerados pela análise de médicos [7], e não tenho acesso a ambos.
 
 Só recentemente busquei por artigos que faziam a segmentação do CC em imagens ponderadas em T1 (sendo que estes não utilizam o watershed), o que acredito ter sido um grande erro. Durante esta busca encontrei um artigo que utilizava um algoritmo de "Adaptive Mean Shift Clustering" que conseguia separar o CC muito bem [8], veja a imagem abaixo (retirada do artigo de Li, Yue, Mrinal Mandal, e S. Nizam Ahmed):
 
